@@ -1,0 +1,28 @@
+{
+  "name": "test-cli",
+  "version": "0.1.0",
+  "author": "Simon Lydell",
+  "license": "MIT",
+  "description": "Test CLI applications (that are written a certain way).",
+  "main": "index.js",
+  "repository": "lydell/test-cli",
+  "keywords": [
+    "command",
+    "command line",
+    "command line interface",
+    "cli",
+    "test",
+    "process",
+    "fake",
+    "stub",
+    "mock"
+  ],
+  "scripts": {
+    "test": "jshint index.js test/ && mocha"
+  },
+  "devDependencies": {
+    "mocha": "^1.17.1",
+    "jshint": "^2.4.4",
+    "chai": "^1.9.1"
+  }
+}
