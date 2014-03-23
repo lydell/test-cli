@@ -120,7 +120,10 @@ describe("run", function() {
       process.stdin.setEncoding("utf8")
       var chunks = []
       process.stdin.on("readable", function() {
-        chunks.push(process.stdin.read())
+        var chunk = process.stdin.read()
+        if (chunk !== null) {
+          chunks.push(chunk)
+        }
       })
       process.stdin.on("end", function() {
         expect(chunks).to.eql([])
@@ -139,7 +142,10 @@ describe("run", function() {
       process.stdin.setEncoding("utf8")
       var chunks = []
       process.stdin.on("readable", function() {
-        chunks.push(process.stdin.read())
+        var chunk = process.stdin.read()
+        if (chunk !== null) {
+          chunks.push(chunk)
+        }
       })
       process.stdin.on("end", function() {
         expect(chunks).to.eql(["Hello, World!"])
@@ -158,7 +164,10 @@ describe("run", function() {
       process.stdin.setEncoding("utf8")
       var chunks = []
       process.stdin.on("readable", function() {
-        chunks.push(process.stdin.read())
+        var chunk = process.stdin.read()
+        if (chunk !== null) {
+          chunks.push(chunk)
+        }
       })
       process.stdin.on("end", function() {
         expect(chunks).to.eql(["Hello", ", ", "World!"])
@@ -177,7 +186,10 @@ describe("run", function() {
       process.stdin.setEncoding("utf8")
       var content = ""
       process.stdin.on("readable", function() {
-        content += process.stdin.read()
+        var chunk = process.stdin.read()
+        if (chunk !== null) {
+          content += chunk
+        }
       })
       process.stdin.on("end", function() {
         expect(content).to.equal("Hello,\nWorld!\n")
